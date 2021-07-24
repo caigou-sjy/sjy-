@@ -8,14 +8,28 @@ package test;
  */
 
 public class Tree {
-    public TreeNode createTree(int[] date, int i, TreeNode root) {
-        if (date == null || date.length == 0 || date[i] < 0) {
+    public int index;
+    public Tree(){}
+    //根据数组创建先序二叉树
+    public TreeNode createTree(int[] date) {
+        TreeNode root = null;
+        if (date == null || date.length == 0 ) return null;
+        if( date[index]=='#') {
             return null;
         }
-        TreeNode node = new TreeNode(date[i]);
-        node.left=createTree(date,++i,node);
-        node.right=createTree(date,++i,node);
-
-        return node;
+        root = new TreeNode(date[index]);
+        System.out.println("create node:"+root.val);
+        index+=1;
+        root.left=createTree(date);
+        index+=1;
+        root.right=createTree(date);
+        return root;
+    }
+    //先序遍历二叉树
+    public void printTree(TreeNode root){
+        if(root==null) return;
+        System.out.println(root.val);
+        printTree(root.left);
+        printTree(root.right);
     }
 }
