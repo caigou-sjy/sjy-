@@ -12,6 +12,7 @@ public class Main {
         Tree tree = new Tree();
         TreeNode root = tree.createTree(date);
         System.out.println("root:"+root.val);
+        System.out.println(tree.sumOfLeftLeaves(root));
 
 
 //        int[] date = {1,2,3,4,5};

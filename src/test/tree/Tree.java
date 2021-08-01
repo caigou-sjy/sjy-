@@ -20,7 +20,7 @@ public class Tree {
             return null;
         }
         root = new TreeNode(date[index]);
-        System.out.println("create node:"+root.val);
+        //System.out.println("create node:"+root.val);
         index+=1;
         root.left=createTree(date);
         index+=1;
@@ -54,4 +54,16 @@ public class Tree {
     }
     //按层遍历
 
+    //求左子节点之和
+    public int sumOfLeftLeaves(TreeNode root){
+        if(root==null) return 0;
+        int leftVal = sumOfLeftLeaves(root.left);
+        int rightVal = sumOfLeftLeaves(root.right);
+        int midVal = 0;
+        if(root.left!=null && root.left.left==null && root.left.right==null){
+            midVal = root.left.val;
+
+        }
+        return leftVal+rightVal+midVal;
+    }
 }
