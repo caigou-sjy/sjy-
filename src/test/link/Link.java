@@ -1,5 +1,7 @@
 package test.link;
 
+import com.sun.org.apache.bcel.internal.generic.LNEG;
+
 public class Link {
 
     public LinkNode head=null;
@@ -68,4 +70,38 @@ public class Link {
         }
         return h;
     }
+    //两整数链表求和:输入两逆置链表，输出正序结果
+    public LinkNode sumOfTwoLink(LinkNode h1,LinkNode h2){
+
+        if(h1 == null && h2 == null){
+            return null;
+        }
+        else if(h1 == null || h2 == null){
+            return h1==null?h2:h1;
+        }
+
+        LinkNode p=h1,q=h2,cur=null,newHead=null;
+        int carry=0;
+        while (p!=null || q!=null){
+            int val1 = p==null?0:p.val;
+            int val2 = q==null?0:q.val;
+            int sum = val1+val2+carry;
+            carry = sum/10;
+            if(newHead==null){
+                newHead = new LinkNode(sum%10);
+            }else {
+                cur = new LinkNode(sum%10);
+                cur.next = newHead;
+                newHead = cur;
+            }
+            if(p!=null){
+                p=p.next;
+            }
+            if(q!=null){
+                q=q.next;
+            }
+        }
+        return newHead;
+    }
+
 }
