@@ -42,6 +42,14 @@ public class Link {
         return head;
     }
 
+    //创建有环链表
+    public LinkNode createCycleLink(int[] date,int cycle){
+        if(date.length==0 ){
+
+        }
+        return null;
+    }
+
     public void printLink(LinkNode h) {
         LinkNode p = h;
         while (p != null) {
@@ -52,7 +60,9 @@ public class Link {
     }
 
     public LinkNode reverseLink(LinkNode h) {
-        if (h == null || h.next == null) return h;
+        if (h == null || h.next == null){
+            return h;
+        }
         LinkNode p = h;
         h = null;
         LinkNode q = null;
@@ -136,4 +146,19 @@ public class Link {
         return newHead;
     }
 
+    //判断链表有环
+    public boolean hasCycle(LinkNode h){
+        if(h == null || h.next ==null){
+            return false;
+        }
+        LinkNode p = h.next.next, q = h.next;
+        while (q!=null){
+            if(p == q){
+                return true;
+            }
+            p=p.next.next;
+            q=q.next;
+        }
+        return false;
+    }
 }
