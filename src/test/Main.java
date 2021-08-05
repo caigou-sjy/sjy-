@@ -15,17 +15,17 @@ public class Main {
 //        System.out.println(tree.sumOfLeftLeaves(root));
 
 
-        int[] date1 = {1,9,5,2};
+        int[] date1 = {1,3,5,7};
         Link link1 = new Link();
-        LinkNode head1 = link1.createHeadLink(date1);
+        LinkNode head1 = link1.createTailLink(date1);
         link1.printLink(head1);
-        System.out.println("+");
+        System.out.println("marge");
         Link link2 = new Link();
-        int[] date2 = {6,5};
-        LinkNode head2 = link2.createHeadLink(date2);
+        int[] date2 = {2,4,6};
+        LinkNode head2 = link2.createTailLink(date2);
         link2.printLink(head2);
-        LinkNode sum = link1.sumOfTwoLink(head1,head2);
-        System.out.println("=");
+        System.out.println("=>");
+        LinkNode sum = link1.mergeTwoAscLinks(head1,head2);
         link1.printLink(sum);
     }
 }
