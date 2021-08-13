@@ -27,7 +27,5 @@ public class Main {
         LinkNode sum = link1.sumOfTwoLink(head1,head2);
         System.out.println("=");
         link1.printLink(sum);
-
-        System.out.println();
     }
 }

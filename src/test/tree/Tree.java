@@ -66,4 +66,6 @@ public class Tree {
         }
         return leftVal+rightVal+midVal;
     }
+
+    //
 }
