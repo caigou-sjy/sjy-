@@ -1,5 +1,7 @@
 package test.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -36,6 +38,7 @@ public class Tree {
     }
 
     //先序非递归遍历
+    //Stack<TreeNode> stack = new Stack<>();
     public void preStackOder(TreeNode node){
         Stack<TreeNode> stack = new Stack<>();
         while (!stack.isEmpty() || node!=null){
@@ -53,6 +56,25 @@ public class Tree {
         }
     }
     //按层遍历
+    public void floorOrder(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        //入队
+        queue.add(root);
+        while (!queue.isEmpty()){
+            //出队：移除头部元素并返回新头
+            TreeNode node = queue.poll();
+            System.out.println(node.val);
+            if(node.left!=null){
+                queue.add(node.left);
+            }
+            if(node.right!=null){
+                queue.add(node.right);
+            }
+        }
+    }
 
     //求左子节点之和
     public int sumOfLeftLeaves(TreeNode root){
