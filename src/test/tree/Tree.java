@@ -76,6 +76,22 @@ public class Tree {
         }
     }
 
+    //求深度
+    public int maxDepth(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        return 1+Math.max(maxDepth(root.left),maxDepth(root.right));
+    }
+
+    //求节点个数
+    public int numOfTreeNode(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        return 1+numOfTreeNode(root.left)+numOfTreeNode(root.right);
+    }
+
     //求左子节点之和
     public int sumOfLeftLeaves(TreeNode root){
         if(root==null) return 0;
