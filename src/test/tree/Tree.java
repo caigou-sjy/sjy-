@@ -39,6 +39,8 @@ public class Tree {
 
     //先序非递归遍历
     //Stack<TreeNode> stack = new Stack<>();
+    //stack.push(node);
+    //node=stack.pop().right;pop出来的节点要接收
     public void preStackOder(TreeNode node){
         Stack<TreeNode> stack = new Stack<>();
         while (!stack.isEmpty() || node!=null){
@@ -56,6 +58,9 @@ public class Tree {
         }
     }
     //按层遍历
+    //Queue<TreeNode> queue = new LinkedList<>();
+    //queue.add(root);
+    //node = queue.poll();poll出来的节点要接收
     public void floorOrder(TreeNode root){
         if(root==null){
             return;

@@ -82,7 +82,7 @@ public class Link {
 
         LinkNode p=h1,q=h2,cur=null,newHead=null;
         int carry=0;
-        while (p!=null || q!=null){
+        while (p!=null || q!=null || carry!=0){
             int val1 = p==null?0:p.val;
             int val2 = q==null?0:q.val;
             int sum = val1+val2+carry;
@@ -90,15 +90,15 @@ public class Link {
             if(newHead==null){
                 newHead = new LinkNode(sum%10);
             }else {
-                cur = new LinkNode(sum%10);
+                cur = new LinkNode(sum % 10);
                 cur.next = newHead;
                 newHead = cur;
             }
-            if(p!=null){
-                p=p.next;
-            }
             if(q!=null){
                 q=q.next;
+            }
+            if(p!=null){
+                p=p.next;
             }
         }
         return newHead;
