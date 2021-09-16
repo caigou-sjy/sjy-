@@ -1,11 +1,10 @@
 package test;
 
-import test.link.Link;
-import test.link.LinkNode;
-import test.tree.Tree;
-import test.tree.TreeNode;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
     }
 }
